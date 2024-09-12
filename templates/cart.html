@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+	<head>
+		<title>FARMART</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
+
+		<meta name="theme-color" content="#FCDB5A" />
+		<meta name="msapplication-navbutton-color" content="#FCDB5A" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#FCDB5A" />
+
+		<!-- Favicons
+		================================================== -->
+		<link rel="shortcut icon" href="{{url_for('static',filename='img/favicon.ico')}}">
+		
+
+		<!-- Critical styles
+		================================================== -->
+		
+		<link rel="stylesheet" href="{{url_for ('static', filename ='css/critical.min.css')}}" type="text/css">
+
+		<!-- Load google font
+		================================================== -->
+		<script type="text/javascript">
+			WebFontConfig = {
+				google: { families: [ 'Open+Sans:300,400,500,600,700,800', 'Raleway:100,400,400i,500,500i,700,700i,900'] }
+			};
+			(function() {
+				var wf = document.createElement('script');
+				wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+				wf.type = 'text/javascript';
+				wf.async = 'true';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(wf, s);
+			})();
+		</script>
+
+		<!-- Load other scripts
+		================================================== -->
+		<script type="text/javascript">
+			var _html = document.documentElement,
+				isTouch = (('ontouchstart' in _html) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));
+
+			_html.className = _html.className.replace("no-js","js");
+			_html.classList.add( isTouch ? "touch" : "no-touch");
+		</script>
+		<script type="text/javascript" src="{{url_for('static',filename='js/device.min.js')}}"></script>
+	</head>
+
+	<body class="woocommerce-page cart-page">
+		<div id="app">
+			<!-- start header -->
+			<header id="top-bar" class="top-bar top-bar--style-2">
+				<div class="top-bar__bg" style="background-color: #FFF;background-image: url('{{url_for('static',filename='img/top_bar_bg-2.png')}}');background-repeat: no-repeat;background-position: center bottom;"></div>
+
+				<div class="container position-relative">
+					<div class="row justify-content-between no-gutters">
+
+						<a class="top-bar__logo site-logo" href="index_4.html">
+							<img class="img-fluid" src="{{url_for('static',filename='img/WhatsApp Image 2023-01-01 at 13.08.47.jpeg')}}" alt="demo" width="115" height="129" />
+						</a>
+
+						<a id="top-bar__navigation-toggler" class="top-bar__navigation-toggler top-bar__navigation-toggler--dark" href="javascript:void(0);"><span></span></a>
+
+						<div id="top-bar__inner" class="top-bar__inner  text-lg-right">
+							<div>
+								<div class="d-lg-flex flex-lg-column-reverse align-items-lg-end">
+									<nav id="top-bar__navigation" class="top-bar__navigation navigation" role="navigation">
+										<ul>
+											<li>
+												<a href="/index">Home</a>
+											</li>
+
+											<li class="has-submenu active">
+												<a href="javascript:void(0);">Shop</a>
+
+												<ul class="submenu">
+													<li class="active"><a href="/shop_catalog">Shop Catalog</a></li>
+													<li><a href="/product_details">Product Details</a></li>
+													<li><a href="/cart">Cart</a></li>
+													<li><a href="/checkout">Checkout</a></li>
+												</ul>
+											</li>
+											<li class="li-cart">
+												<a href="#"><i class="fontello-shopping-bag"></i><span class="total">0</span></a>
+											</li>
+
+											<li class="li-btn">
+                                                <a class="custom-btn custom-btn--small custom-btn--style-4" href='/'>LOGUT</a>
+                                            </li>
+
+										</ul>
+									</nav>
+
+									
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</header>
+			<!-- end header -->
+
+			<!-- start hero -->
+			<div id="hero" class="jarallax" data-speed="0.7" data-img-position="50% 100%" style="background-image: url('{{url_for('static', filename='img/intro_img/12.jpg')}}');color: #333;">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-md-7">
+							<h1 class="__title"><span>FarMart</span> Cart</h1>
+
+							<p>
+								The point of using is that it has a more-or-less normal distribution of letters, as opposed to using Content here content here making it look
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end hero -->
+
+			<!-- start main -->
+			<main role="main">
+				<!-- Common styles
+				================================================== -->
+				<link rel="stylesheet" href="{{url_for('static', filename ='css/style.min.css')}}" type="text/css">
+
+				<!-- Load lazyLoad scripts
+				================================================== -->
+				<script>
+					(function(w, d){
+						var m = d.getElementsByTagName('main')[0],
+							s = d.createElement("script"),
+							v = !("IntersectionObserver" in w) ? "8.17.0" : "10.19.0",
+							o = {
+								elements_selector: ".lazy",
+								data_src: 'src',
+								data_srcset: 'srcset',
+								threshold: 500,
+								callback_enter: function (element) {
+
+								},
+								callback_load: function (element) {
+									element.removeAttribute('data-src')
+
+									oTimeout = setTimeout(function ()
+									{
+										clearTimeout(oTimeout);
+
+										AOS.refresh();
+									}, 1000);
+								},
+								callback_set: function (element) {
+
+								},
+								callback_error: function(element) {
+									element.src = "https://placeholdit.imgix.net/~text?txtsize=21&txt=Image%20not%20load&w=200&h=200";
+								}
+							};
+						s.type = 'text/javascript';
+						s.async = true; // This includes the script as async. See the "recipes" section for more information about async loading of LazyLoad.
+						s.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@" + v + "/dist/lazyload.min.js";
+						m.appendChild(s);
+						// m.insertBefore(s, m.firstChild);
+						w.lazyLoadOptions = o;
+					}(window, document));
+				</script>
+
+				<!-- start section -->
+				<section class="section">
+					<div class="decor-el decor-el--1" data-jarallax-element="-70" data-speed="0.2">
+						<img class="lazy" width="286" height="280" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='img/decor-el_1.jpg')}}" alt="demo"/>
+					</div>
+
+					<div class="decor-el decor-el--2" data-jarallax-element="-70" data-speed="0.2">
+						<img class="lazy" width="99" height="88" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='img/decor-el_1.jpg')}}" alt="demo"/>
+					</div>
+
+					<div class="decor-el decor-el--3" data-jarallax-element="-70" data-speed="0.2">
+						<img class="lazy" width="115" height="117" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='img/decor-el_1.jpg')}}" alt="demo"/>
+					</div>
+
+					<div class="decor-el decor-el--4" data-jarallax-element="-70" data-speed="0.2">
+						<img class="lazy" width="84" height="76" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='img/decor-el_1.jpg')}}" alt="demo"/>
+					</div>
+
+					<div class="decor-el decor-el--5" data-jarallax-element="-70" data-speed="0.2">
+						<img class="lazy" width="248" height="309" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='img/decor-el_1.jpg')}}" alt="demo"/>
+					</div>
+
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-md-8 col-lg-9">
+
+								<!-- start cart -->
+								
+								<div class="cart">
+									
+										<div class="cart__table">
+											<table>
+												<thead>
+													<tr>
+														<td width="10%">&nbsp;</td>
+														<td width="35%">added products</td>
+														<td width="15%">Price</td>
+														<td width="20%">Quantity</td>
+														<td width="15%">Total</td>
+														<td width="5%">&nbsp;</td>
+													</tr>
+												</thead>
+                                                {% for product in products %}
+												<tbody>
+													<tr>
+														<td>
+															<figure class="__image">
+																<a href="#">
+																	<img class="lazy" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='')}}{{product[4]}}" alt="demo" />
+																</a>
+															</figure>
+														</td>
+
+														<td>
+															<a href="#" class="__name">{{product[1]}}</a>
+														</td>
+
+														<td>
+															<span class="__price">{{product[3]}} Rs.</span>
+														</td>
+
+														<td>
+															<div class="quantity-counter js-quantity-counter">
+																<!-- <span class="__btn __btn--minus"></span> -->
+																<input class="__q-input" type="text" value={{product[5]}} />
+																<!-- <span class="__btn __btn--plus"></span> -->
+															</div>
+														</td>
+
+														<td>
+															<span class="__total">{{product[3]}} Rs.</span>
+														</td>
+
+														<!-- <td>
+															<a class="__remove" href="#" aria-label="Remove this item">
+																<i class="fontello-cancel"></i>
+															</a>
+														</td> -->
+													</tr>
+													{%endfor%}
+													<!-- <tr>
+														<td>
+															<figure class="__image">
+																<a href="#">
+																	<img class="lazy" src="img/blank.gif" data-src="img/goods_img/8.jpg" alt="demo" />
+																</a>
+															</figure>
+														</td>
+<!-- 
+														<td>
+															<a href="#" class="__name">Freash Peach</a>
+														</td>
+
+														<td>
+															<span class="__price">2.99 $</span>
+														</td>
+
+														<td> -->
+															<!-- <div class="quantity-counter js-quantity-counter">
+																<span class="__btn __btn--minus"></span>
+																<input class="__q-input" type="text" value="1" />
+																<span class="__btn __btn--plus"></span>
+															</div>
+														</td>
+
+														<td>
+															<span class="__total">2.99 $</span>
+														</td>
+
+														<td>
+															<a class="__remove" href="#" aria-label="Remove this item">
+																<i class="fontello-cancel"></i>
+															</a>
+														</td>
+													</tr> -->
+
+													<!-- <tr> -->
+														<!-- <td>
+															<figure class="__image">
+																<a href="#">
+																	<img class="lazy" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='img/goods_img/3.jpg')}}" alt="demo" />
+																</a>
+															</figure>
+														</td>
+
+														<td>
+															<a href="#" class="__name">Apples</a>
+														</td>
+
+														<td>
+															<span class="__price">60 Rs.</span>
+														</td>
+
+														<td>
+															<div class="quantity-counter js-quantity-counter">
+																<span class="__btn __btn--minus"></span>
+																<input class="__q-input" type="text" value="1" />
+																<span class="__btn __btn--plus"></span>
+															</div>
+														</td>
+
+														<td>
+															<span class="__total">60 Rs.</span>
+														</td>
+
+														<td>
+															<a class="__remove" href="#" aria-label="Remove this item">
+																<i class="fontello-cancel"></i>
+															</a>
+														</td>
+													</tr> -->
+												</tbody>
+											</table>
+										</div>
+
+										<div class="py-5"></div>
+
+										<div class="row justify-content-md-between">
+											<div class="col-12 col-md-6">
+
+												<div class="cart__coupon form--horizontal">
+													<div class="input-wrp">
+														<input class="textfield" type="text" placeholder="Coupon code" />
+													</div>
+
+													<button class="custom-btn custom-btn--medium custom-btn--style-1" type="submit" role="button">Apply Coupon</button>
+												</div>
+
+											</div>
+
+											<div class="col-12 col-md-6 col-lg-5 col-xl-4">
+												<div class="spacer py-5 d-md-none"></div>
+												<form action="/checkout" method="POST">
+													<div class="cart__total">
+														<table>
+															<thead>
+																<tr>
+																	<td colspan="2"><h3>CART <span>TOTALS</span></h3></td>
+																</tr>
+															</thead>
+															
+															<tfoot>
+																<tr>
+																	<td colspan="2">
+																			<button type="submit" class="custom-btn custom-btn--medium custom-btn--style-1">Proceed to checkout</button>
+																		
+																	</td>
+																</tr>
+															</tfoot>
+
+															<tbody>
+																<tr>
+																	<td>Subtotal:</td>
+																	<td>{{total_price}} Rs.</td>
+																</tr>
+
+																<tr>
+																	<td>Shipping</td>
+																	<td>Free</td>
+																</tr>
+
+																<tr>
+																	<td>Total</td>
+																	<td>{{total_price}} Rs.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</form>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!-- start cart -->
+
+								
+
+							</div>
+
+							
+
+							
+						</div>
+					</div>
+				</section>
+				<!-- end section -->
+
+				
+			</main>
+			<!-- end main -->
+
+			<!-- start footer -->
+			<footer id="footer" class="footer footer--style-4">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+							<div class="footer__item">
+								<a class="site-logo" href="index.html">
+									<img class="img-fluid  lazy" src="{{url_for('static',filename='img/blank.gif')}}" data-src="{{url_for('static',filename='img/goods_img/WhatsApp Image 2023-01-01 at 13.08.47.jpeg')}}" alt="demo" width="115" height="129"/>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-9 col-lg-6">
+							<div class="footer__item">
+								<nav id="footer__navigation" class="navigation">
+									<div class="row">
+										<div class="col-6 col-sm-4">
+											<h5 class="footer__item__title h6">Menu</h5>
+
+											<ul>
+												<li class="active"><a href="index.html">Home</a></li>
+												<li><a href="#">About</a></li>
+												<!-- <li><a href="#">Pages</a></li>
+												<li><a href="#">Gallery</a></li>
+												<li><a href="#">Blog</a></li> -->
+												<li><a href="#">Contacts</a></li>
+											</ul>
+										</div>
+
+										<div class="col-6 col-sm-4">
+											<h5 class="footer__item__title h6">Shop</h5>
+
+											<ul>
+												<li><a href="#">Partners</a></li>
+												<li><a href="#">Customer Service</a></li>
+												<li><a href="#">Vegetables</a></li>
+												<li><a href="#">Fruits</a></li>
+												<li><a href="#">Organic Food</a></li>
+												<li><a href="#">Privacy policy</a></li>
+											</ul>
+										</div>
+
+										<div class="col-6 col-sm-4">
+											<h5 class="footer__item__title h6">Information</h5>
+
+											<ul>
+												<li><a href="#">Delivery</a></li>
+												<li><a href="#">Legal Notice</a></li>
+												<li><a href="#">About Us</a></li>
+												<li><a href="#">Secure Payment</a></li>
+												<li><a href="#">Prices Drop</a></li>
+												<li><a href="#">Documents</a></li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+							</div>
+						</div>
+
+						<div class="col-12 col-md col-lg-4">
+							<div class="footer__item">
+								<h5 class="footer__item__title h6">Contacts</h5>
+
+								<!-- <address>
+									<p>
+										523 Sylvan Ave, 5th Floor Mountain View, CA 940 USA
+									</p>
+
+									<p>
+										+1 (234) 56789,  +1 987 654 3210 
+									</p>
+
+									<p>
+										<a href="mailto:support@agrocompany.com">support@agrocompany.com</a>
+									</p>
+								</address> -->
+
+								<div class="social-btns">
+									<a href="#"><i class="fontello-twitter"></i></a>
+									<a href="#"><i class="fontello-facebook"></i></a>
+									<a href="#"><i class="fontello-linkedin-squared"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row align-items-lg-end justify-content-lg-between copyright">
+						<div class="col-12 col-lg-6">
+							<div class="footer__item">
+								<span class="__copy">© 2022, FarMartTheme by <a class="__dev" href="https://themeforest.net/user/artureanec" target="_blank">Artureanec</a> | <a href="#">Privacy Policy</a> | <a href="#">Sitemap</a></span>
+							</div>
+						</div>
+
+						<div class="col-12 col-lg-6">
+							<div class="footer__item">
+								<form class="form--horizontal no-gutters" action="#">
+									<div class="col-sm-6">
+										<div class="input-wrp">
+											<input class="textfield" name="s" type="text" placeholder="Your E-mail" />
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<button class="custom-btn custom-btn--medium custom-btn--style-3 wide" type="submit" role="button">subscribe</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- end footer -->
+		</div>
+
+		<div id="btn-to-top-wrap">
+			<a id="btn-to-top" class="circled" href="javascript:void(0);" data-visible-offset="800"></a>
+		</div>
+
+		<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
+		<script type="text/javascript" src="{{url_for('static',filename='js/main.min.js')}}"></script>
+		
+	</body>
+</html>
